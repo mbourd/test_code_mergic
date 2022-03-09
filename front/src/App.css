@@ -1,4 +1,48 @@
-.App {
+.container {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.column-label .label-name {
+  width: 150px;
+  border: 3px solid black;
+  border-radius: 15px;
+  margin: auto;
+  text-align: center;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+}
+
+.column-label.col {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.column-label .container-pr {
+  margin-top: 25px;
+  background-color: powderblue;
+  border-radius: 25px;
+  height: 800px;
+  overflow-y: scroll;
+}
+.column-label .container-pr .description-pr {
+  font-size: small;
+}
+.column-label .container-pr::-webkit-scrollbar {
+  display: none;
+}
+
+.column-label .container-pr .row {
+  margin: 5px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  text-align: center;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +79,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

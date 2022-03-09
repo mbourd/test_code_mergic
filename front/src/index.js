@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { services } from './services/services';
+import { appAPI as _appAPI} from './config/axios/appAPI';
+
+export const service = new services();
+export const appAPI = _appAPI();
 
 ReactDOM.render(
   <React.StrictMode>
