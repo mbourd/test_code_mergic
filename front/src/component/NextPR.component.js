@@ -9,7 +9,7 @@ const NextPR = ({ nextPR }) => {
       <Row>
         <Col md="2">
           <img
-            id="spotify-logo"
+            id="merge-logo"
             src={process.env.PUBLIC_URL + "logo-merge.png"}
             alt="merge-logo"
             width={40}

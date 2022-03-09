@@ -17,7 +17,7 @@ const ColumnLabel = ({ labelName, listPR }) => {
               return <Row key={i}>
                 <Col md="2">
                   <img
-                    id="spotify-logo"
+                    id="merge-logo_"
                     src={process.env.PUBLIC_URL + "logo-merge.png"}
                     alt="merge-logo"
                     width={40}
