@@ -17,7 +17,8 @@ const NextPR = ({ nextPR }) => {
           />
         </Col>
         <Col>
-          {nextPR.title && <span style={{ padding: "8px 0" }}>{nextPR.title}<br />{ new Date(nextPR.created_at).toDateString() }, by {nextPR.user.login}</span>}
+          {!nextPR.hasOwnProperty("title") && "Waiting..."}
+          {nextPR.hasOwnProperty("title") && <span style={{ padding: "8px 0" }}>{nextPR.title}<br />{ new Date(nextPR.created_at).toDateString() }, by {nextPR.user.login}</span>}
 
         </Col>
       </Row>
