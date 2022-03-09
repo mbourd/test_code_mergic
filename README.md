@@ -8,3 +8,7 @@ Ce mettre dans le dossier `/front`
 Ce mettre dans le dossier `/front`
 - executer `npm start`
 - Le server tourne sur `http://localhost:3000/`
+
+## Run python back
+Executer `python ./app/mergic/app.py`
+- Le server tourne sur `http://localhost:8000/`
