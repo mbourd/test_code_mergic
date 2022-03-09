@@ -55,6 +55,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
                     <Form.Control
                       name="urlRepo"
                       type="text"
+                      placeholder="https://github.com/python/cpython"
                       onChange={handleChange("urlRepo")}
                       value={values.urlRepo}
                       isInvalid={touched.urlRepo && !!errors.urlRepo}
