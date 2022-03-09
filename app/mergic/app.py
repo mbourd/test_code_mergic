@@ -61,6 +61,7 @@ def next_pr_to_review() -> typing.Any:
 
         if (scorePR[pr["id"]] > currentMaxScore):
             currentPRwithMaxScore = pr
+            currentMaxScore = scorePR[pr["id"]]
 
     return flask.jsonify(currentPRwithMaxScore)
 
