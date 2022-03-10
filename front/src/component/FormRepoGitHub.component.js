@@ -2,8 +2,10 @@ import { Container, Col, Row, Button, Form, Card, ListGroup } from "react-bootst
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { service } from "..";
+import { useState } from "react";
 
 const FormRepoGithub = ({ setListPR, setNextPR }) => {
+  const [isDisabledSubmitBtn, setIsDisabledSubmitBtn] = useState(false);
 
   const getPullRequest = (urlRepoGithub) => {
     let owner = "";
@@ -25,6 +27,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
       .then(r => {
         // console.log(r.data)
         setNextPR(r.data);
+        setIsDisabledSubmitBtn(false);
       });
   }
 
@@ -39,6 +42,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
           .required("URL doit être renseigné")
       })}
       onSubmit={async (values) => {
+        setIsDisabledSubmitBtn(true);
         getPullRequest(values.urlRepo);
       }}
     >
@@ -69,6 +73,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
                 type="submit"
                 className="outline-info"
                 onClick={handleSubmit}
+                disabled={isDisabledSubmitBtn}
               >
                 Valider
               </Button>
