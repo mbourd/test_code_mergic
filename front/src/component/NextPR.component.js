@@ -18,7 +18,11 @@ const NextPR = ({ nextPR, isComputingAllPR }) => {
         </Col>
         <Col>
           {isComputingAllPR && <strong>Waiting...</strong>}
-          {!isComputingAllPR && nextPR.hasOwnProperty("title") && <span style={{ padding: "8px 0" }}>{nextPR.title}<br />{ new Date(nextPR.created_at).toDateString() }, by {nextPR.user.login}</span>}
+          {!isComputingAllPR && nextPR.hasOwnProperty("title") &&
+            <a href={nextPR.html_url} target="_blank">
+              <span style={{ padding: "8px 0" }}>{nextPR.title}<br />{new Date(nextPR.created_at).toDateString()}, by {nextPR.user.login}</span>
+            </a>
+          }
 
         </Col>
       </Row>
