@@ -5,6 +5,7 @@ import { service } from "..";
 import { useState } from "react";
 
 const FormRepoGithub = ({ setListPR, setNextPR }) => {
+  const [isDisabledUrlInput, setIsDisabledUrlInput] = useState(false);
   const [isDisabledSubmitBtn, setIsDisabledSubmitBtn] = useState(false);
 
   const getPullRequest = (urlRepoGithub) => {
@@ -27,6 +28,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
       .then(r => {
         // console.log(r.data)
         setNextPR(r.data);
+        setIsDisabledUrlInput(false);
         setIsDisabledSubmitBtn(false);
       });
   }
@@ -42,6 +44,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
           .required("URL doit être renseigné")
       })}
       onSubmit={async (values) => {
+        setIsDisabledUrlInput(true);
         setIsDisabledSubmitBtn(true);
         getPullRequest(values.urlRepo);
       }}
@@ -57,6 +60,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
                   </Col>
                   <Col>
                     <Form.Control
+                      disabled={isDisabledUrlInput}
                       name="urlRepo"
                       type="text"
                       placeholder="https://github.com/python/cpython"
