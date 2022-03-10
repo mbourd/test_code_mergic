@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { service } from "..";
 import { useState } from "react";
 
-const FormRepoGithub = ({ setListPR, setNextPR }) => {
+const FormRepoGithub = ({ setListPR, setNextPR, setIsComputingAllPR }) => {
   const [isDisabledUrlInput, setIsDisabledUrlInput] = useState(false);
   const [isDisabledSubmitBtn, setIsDisabledSubmitBtn] = useState(false);
 
@@ -27,6 +27,7 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
     service.app.getPullRequestToReview(listPR)
       .then(r => {
         // console.log(r.data)
+        setIsComputingAllPR(false);
         setNextPR(r.data);
         setIsDisabledUrlInput(false);
         setIsDisabledSubmitBtn(false);
@@ -44,8 +45,10 @@ const FormRepoGithub = ({ setListPR, setNextPR }) => {
           .required("URL doit être renseigné")
       })}
       onSubmit={async (values) => {
+        setListPR([]);
         setIsDisabledUrlInput(true);
         setIsDisabledSubmitBtn(true);
+        setIsComputingAllPR(true);
         getPullRequest(values.urlRepo);
       }}
     >

@@ -12,6 +12,7 @@ function App() {
   const [listLabels, setListLabels] = useState(["urgent", "help-needed", "bugfix", "CLA signed"]);
   const [listPR, setListPR] = useState([]);
   const [listPRArranged, setListPRArranged] = useState([]);
+  const [isComputingAllPR, setIsComputingAllPR] = useState(false);
 
   useEffect(() => {
     let arranged = {};
@@ -40,6 +41,7 @@ function App() {
             <FormRepoGithub
               setNextPR={setNextPR}
               setListPR={setListPR}
+              setIsComputingAllPR={setIsComputingAllPR}
             />
           </Col>
         </Row>
@@ -48,6 +50,7 @@ function App() {
         <Row>
           <NextPR
             nextPR={nextPR}
+            isComputingAllPR={isComputingAllPR}
           />
         </Row>
 

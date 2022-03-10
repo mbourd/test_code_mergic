@@ -1,6 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 
-const NextPR = ({ nextPR }) => {
+const NextPR = ({ nextPR, isComputingAllPR }) => {
   return <>
     <Col md="3">
       Next PR to review :
@@ -17,8 +17,8 @@ const NextPR = ({ nextPR }) => {
           />
         </Col>
         <Col>
-          {!nextPR.hasOwnProperty("title") && "Waiting..."}
-          {nextPR.hasOwnProperty("title") && <span style={{ padding: "8px 0" }}>{nextPR.title}<br />{ new Date(nextPR.created_at).toDateString() }, by {nextPR.user.login}</span>}
+          {isComputingAllPR && <strong>Waiting...</strong>}
+          {!isComputingAllPR && nextPR.hasOwnProperty("title") && <span style={{ padding: "8px 0" }}>{nextPR.title}<br />{ new Date(nextPR.created_at).toDateString() }, by {nextPR.user.login}</span>}
 
         </Col>
       </Row>
